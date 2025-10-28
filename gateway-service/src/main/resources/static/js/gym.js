@@ -9,8 +9,8 @@ async function loadGym() {
 
         tr.innerHTML = `
             <td>${g.id}</td>
-            <td><input type="text" value="${g.name}" id="name-${g.id}" readonly style="background-color:#f8f9fa; border:1px solid #ddd;"></td>
-            <td><input type="text" value="${g.item}" id="item-${g.id}" readonly style="background-color:#f8f9fa; border:1px solid #ddd;"></td>
+            <td><input type="text" value="${g.name}" id="name-${g.id}" ></td>
+            <td><input type="text" value="${g.item}" id="item-${g.id}" ></td>
             <td>
                 <button onclick="updateGym(${g.id})">수정</button>
                 <button onclick="deleteGym(${g.id})">삭제</button>
