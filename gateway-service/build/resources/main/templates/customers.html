@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>고객 관리</title>
+    <title>예약 고객 관리</title>
     <script src="/js/customer.js" defer></script>
     <style>
         body { font-family: sans-serif; margin: 30px; }
@@ -14,17 +14,36 @@
     </style>
 </head>
 <body>
-<h1>고객 관리 프로그램</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">MSA 프로젝트</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/customers">고객</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/gym">체육관</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h1>예약 고객 관리 프로그램</h1>
 
 <div>
     <input type="text" id="name" placeholder="이름">
-    <input type="email" id="email" placeholder="이메일">
+    <input type="phone" id="phone" placeholder="전화번호">
+    <input type="cusnum" id="cusnum" placeholder="고객수">
     <button onclick="addCustomer()">추가</button>
 </div>
 
 <table>
     <thead>
-    <tr><th>ID</th><th>이름</th><th>이메일</th><th>액션</th></tr>
+    <tr><th>ID</th><th>이름</th><th>전화번호</th><th>고객수</th></tr>
     </thead>
     <tbody id="customer-table"></tbody>
 </table>
