@@ -3,82 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>장소 관리</title>
+    <link rel="stylesheet" href="/css/style.css">
     <script src="/js/gym.js" defer></script>
     <script src="/js/message.js" defer></script>
-    <style>
-        body { font-family: sans-serif; margin: 30px; }
-        input { margin-right: 10px; }
-        table { border-collapse: collapse; width: 60%; margin-top: 20px; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        th { background: #f3f3f3; }
-        button { margin-left: 5px; }
-    </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- 상단 네비게이션 -->
+<nav class="navbar">
     <div class="container">
         <a class="navbar-brand" href="/">MSA 프로젝트</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/customers">고객</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/gym">체육관</a>
-                </li>
-            </ul>
+        <div>
+            <a class="nav-link" href="/customers" style="margin-right: 20px; color: white;">고객</a>
+            <a class="nav-link" href="/gym" style="color: #f1c40f;">체육관</a>
         </div>
     </div>
 </nav>
-<h1>장소 관리 프로그램</h1>
 
-<div>
-    <input type="text" id="name" placeholder="이름">
-    <input type="text" id="item" placeholder="종목">
-    <button onclick="addGym()">추가</button>
+<div class="container">
+    <h1 style="margin-bottom: 1.5rem;">🏋️ 장소 관리 프로그램</h1>
+
+    <!-- 입력 폼 -->
+    <div class="card">
+        <h3>새 종목 등록</h3>
+        <div class="form-group">
+            <label for="name">위치</label>
+            <input type="text" id="name" class="form-control" placeholder="예: 헬스센터 3호관">
+        </div>
+        <div class="form-group">
+            <label for="item">종목</label>
+            <input type="text" id="item" class="form-control" placeholder="예: 헬스, 요가 등">
+        </div>
+        <button class="btn btn-primary" onclick="addGym()">추가</button>
+    </div>
+
+    <!-- 체육관 목록 -->
+    <div class="card">
+        <h3>체육관 목록</h3>
+        <table class="table" id="gym-table">
+            <thead>
+            <tr>
+                <th style="width: 10%;">ID</th>
+                <th style="width: 30%;">위치</th>
+                <th style="width: 30%;">종목</th>
+                <th style="width: 30%;">작업</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- 메시지 목록 -->
+    <div class="card">
+        <h3>받은 메시지</h3>
+        <table class="table" id="message-table">
+            <thead>
+            <tr>
+                <th style="width: 10%;">ID</th>
+                <th style="width: 60%;">내용</th>
+                <th style="width: 30%;">작업</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 </div>
-
-<table>
-    <thead>
-    <tr><th>ID</th><th>이름</th><th>종목</th></tr>
-    </thead>
-    <tbody id="gym-table"></tbody>
-</table>
-
-<hr>
-
-<table>
-    <thead>
-    <tr><th>ID</th><th>받은 메세지</th></tr>
-    </thead>
-    <tbody id="message-table"></tbody>
-</table>
-<!--<h2>데이터 전송</h2>-->
-<!--<input type="text" id="inputData" placeholder="보낼 메시지 입력" />-->
-<!--<button onclick="sendData()">전송</button>-->
-
-<!--<p id="result"></p>-->
-<!--<script>-->
-<!--    async function sendData() {-->
-<!--        const data = document.getElementById("inputData").value;-->
-<!--        if (!data) {-->
-<!--            alert("데이터를 입력하세요!");-->
-<!--            return;-->
-<!--        }-->
-
-<!--        const response = await fetch("/api/send", {-->
-<!--            method: "POST",-->
-<!--            headers: { "Content-Type": "application/json" },-->
-<!--            body: JSON.stringify({ message: data })-->
-<!--        });-->
-
-<!--        const result = await response.text();-->
-<!--        document.getElementById("result").innerText = result;-->
-<!--    }-->
-<!--</script>-->
-
 </body>
 </html>
