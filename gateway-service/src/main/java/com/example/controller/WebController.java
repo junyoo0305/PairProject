@@ -48,4 +48,15 @@ public class WebController {
         model.addAttribute("message", "고객 목록");
         return "customers";
     }
+
+    @GetMapping("/users")
+    public String users() {
+        return "users";
+    }
+
+    @GetMapping("/gym")
+    public String gym(Model model) {
+        model.addAttribute("message", "장소 관리");
+        return "gym";
+    }
 } 
